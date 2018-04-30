@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ManualInputActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/radioBtnNumColor"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:orientation="horizontal"
+            android:checkedButton="@+id/radioBtnColors4">
+
+            <RadioButton
+                android:id="@+id/radioBtnColors4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="4" />
+
+            <RadioButton
+                android:id="@+id/radioBtnColors5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="5" />
+
+            <RadioButton
+                android:id="@+id/radioBtnColors6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="6" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Color 1:"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
+
+        <Spinner
+            android:id="@+id/selectionColor1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:entries="@array/colors"
+            tools:layout_editor_absoluteX="150dp"
+            tools:layout_editor_absoluteY="185dp" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Color 2:"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
+
+        <Spinner
+            android:id="@+id/selectionColor2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:entries="@array/colors"
+            tools:layout_editor_absoluteX="150dp"
+            tools:layout_editor_absoluteY="233dp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Color 3:"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
+
+        <Spinner
+            android:id="@+id/selectionColor3"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:entries="@array/colors"
+            tools:layout_editor_absoluteX="150dp"
+            tools:layout_editor_absoluteY="281dp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Multiplier:"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
+
+        <Spinner
+            android:id="@+id/selectionMultiplier"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:entries="@array/multipliers"
+            tools:layout_editor_absoluteX="150dp"
+            tools:layout_editor_absoluteY="329dp" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tolerance:"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
+
+        <Spinner
+            android:id="@+id/selectionTolerance"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:entries="@array/tolerance" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tempco:"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
+
+        <Spinner
+            android:id="@+id/selectionTempco"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:entries="@array/tempco" />
+
+        <Button
+            android:id="@+id/btnCalculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calculate" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
