@@ -46,7 +46,12 @@ public class EditImageActivity extends AppCompatActivity {
         continueResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Resistor r = new Resistor(img, numberColors);
+                Resistor r = null;
+                try {
+                    r = new Resistor(img, numberColors);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 Intent results = new Intent(EditImageActivity.this, ResultsActivity.class);
                 results.putExtra("RESISTOR", (Serializable) r);
                 startActivity(results);
