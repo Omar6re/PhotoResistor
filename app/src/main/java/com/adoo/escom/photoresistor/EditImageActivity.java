@@ -65,10 +65,10 @@ public class EditImageActivity extends AppCompatActivity {
             }
         });
 
-        opcNumColors.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+        opcNumColors.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId){
+                switch (checkedId) {
 
                     case R.id.radioBtnC4:
 
@@ -98,19 +98,16 @@ public class EditImageActivity extends AppCompatActivity {
     }
 
     private void throwEditor() {
-        if(data != null && !data.isEmpty()){
+        if (data != null && !data.isEmpty()) {
             // Get image path info.
             Uri uri = (Uri) data.get("image");
 
-            if (uri != null)
-            {
+            if (uri != null) {
                 image = getTempFile(EditImageActivity.this);
                 UCrop.of(uri, Uri.fromFile(image)).withAspectRatio(4, 4).withMaxResultSize(300, 300).start(this);
-            }
-            else
+            } else
                 Toast.makeText(this, "There was an error loading the image", Toast.LENGTH_SHORT).show();
-        }
-        else
+        } else
             Toast.makeText(this, "There was an ERROR", Toast.LENGTH_SHORT).show();
     }
 
@@ -132,11 +129,9 @@ public class EditImageActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK && requestCode == UCrop.REQUEST_CROP) {
 
             final Uri resultUri = UCrop.getOutput(data);
-            try
-            {
+            try {
                 img = MediaStore.Images.Media.getBitmap(this.getContentResolver(), resultUri);
-            } catch (IOException e)
-            {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             Glide.with(EditImageActivity.this).load(resultUri).into(imgView);
