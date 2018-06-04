@@ -50,11 +50,11 @@ public class ResistorImage {
 //            Imgproc.cvtColor(bilateral, bilateral, Imgproc.COLOR_BGR2GRAY);
 
             Mat open = bilateral.clone();
-            Mat element = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(4, 15));
+            Mat element = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(5, 20));
             Imgproc.morphologyEx(bilateral, open, Imgproc.MORPH_CLOSE, element);
             Imgproc.morphologyEx(open, open, Imgproc.MORPH_ERODE, element);
 
-//            Imgproc.cvtColor(open, open, Imgproc.COLOR_RGB2GRAY, 4);
+//            Imgproc.cvtColor(open, open, Imgproc.COLOR_RGB2GRAY);
 //            Imgproc.Canny(open, open, 80, 100);
 //            Imgproc.cvtColor(open, open, Imgproc.COLOR_BGRA2BGR);
 //            Mat thresholding = open.clone();
