@@ -44,8 +44,12 @@ public class ResultsActivity extends AppCompatActivity {
         // Set results.
         setLabels();
         assert resistor != null;
-//        Integer value = resistor.getValue();
-//        result.setText(value.toString() + "ohms");
+
+        //Así se obtiene el valor de un entero a través de un String
+        //int value = Integer.parseInt( resistor.getValue() );
+        //Así se obtiene el String de un entero
+        //result.setText( Integer.toString( value ) + " ohms");
+        result.setText( resistor.getValue() );
     }
 
     private void setLabels() {

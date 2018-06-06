@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,11 +14,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.ImageButton;
 
 public class MainMenu extends AppCompatActivity {
-    private Button manualBtn;
-    private Button cameraBtn;
-    private Button galleryBtn;
+    private ImageButton manualBtn;
+    //private Button cameraBtn;
+    private ImageButton galleryBtn;
+    private ImageButton btnCamera;
     private final int CAMERA_CODE = 10;
     private final int GALLERY_CODE = 11;
     private final int READ_PERMISSION_CODE = 12;
@@ -33,9 +36,9 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
 
         // Get all buttons.
-        manualBtn = findViewById(R.id.btnManual);
-        cameraBtn = findViewById(R.id.btnCamera);
-        galleryBtn = findViewById(R.id.btnGallery);
+        manualBtn = (ImageButton) findViewById(R.id.btnManual);
+        galleryBtn = (ImageButton) findViewById(R.id.btnGallery);
+        btnCamera = (ImageButton) findViewById(R.id.botonCamera);
 
         manualBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +47,14 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        cameraBtn.setOnClickListener(new View.OnClickListener() {
+        /*cameraBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                throwIntent(CAMERA_INTENT);
+            }
+        });*/
+
+        btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 throwIntent(CAMERA_INTENT);
