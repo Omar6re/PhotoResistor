@@ -18,7 +18,7 @@ public class ColorIdentifier {
     static final int[] GREY = {128, 128, 128};
     static final int[] WHITE = {255, 255, 255};
     static final int[] BLACK = {20, 20, 20};
-    static final int[] GOLD = {200, 170, 50};
+    static final int[] GOLD = {190, 150, 20};
     static final int[] SILVER = {192, 192, 192};
     static final int[][] colors = {
             BROWN, BLUE, RED, ORANGE, YELLOW,
