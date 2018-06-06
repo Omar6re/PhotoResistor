@@ -12,13 +12,13 @@ public class ColorIdentifier {
     static final int[] BLUE = {20, 20, 125};
     static final int[] RED = {125, 20, 20};
     static final int[] ORANGE = {255, 165, 20};
-    static final int[] YELLOW = {255, 255, 20};
+    static final int[] YELLOW = {230, 230, 20};
     static final int[] GREEN = {50, 125, 50};
     static final int[] VIOLET = {128, 20, 128};
     static final int[] GREY = {128, 128, 128};
     static final int[] WHITE = {255, 255, 255};
     static final int[] BLACK = {20, 20, 20};
-    static final int[] GOLD = {212, 175, 55};
+    static final int[] GOLD = {200, 170, 50};
     static final int[] SILVER = {192, 192, 192};
     static final int[][] colors = {
             BROWN, BLUE, RED, ORANGE, YELLOW,

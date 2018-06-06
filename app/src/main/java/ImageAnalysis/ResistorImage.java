@@ -69,7 +69,7 @@ public class ResistorImage {
     }
 
     public Bitmap getImage() {
-        int y = (int) ((height / 2) - (height * 0.1));
+        int y = (int) ((height / 2) - (height * 0));
         for (int i = 0; i < width; i++) {
             copy.setPixel(i, y, 0xff000000);
         }
@@ -84,7 +84,7 @@ public class ResistorImage {
         String[] colors = new String[stripes];
 
         for (int i = 0; i < stripes; i++) {
-            colors[i] = ColorIdentifier.getColor(getPixelRGB(coords[i], (int) (height / 2 - height * 0.1)));
+            colors[i] = ColorIdentifier.getColor(getPixelRGB(coords[i], (int) (height / 2 - height * 0)));
         }
 
         return colors;

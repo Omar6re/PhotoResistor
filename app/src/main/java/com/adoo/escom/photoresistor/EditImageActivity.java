@@ -105,10 +105,10 @@ public class EditImageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     Resistor r = new Resistor(img, numberColors, stripesCoord);
-                    Integer value = r.getValue();
+                    String value = r.getValue();
                     System.out.println(Arrays.toString(r.getColors()));
                     System.out.println(Arrays.toString(stripesCoord));
-//                    Toast.makeText(EditImageActivity.this, value.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditImageActivity.this, value, Toast.LENGTH_SHORT).show();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
