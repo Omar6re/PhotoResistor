@@ -1,4 +1,4 @@
-package com.adoo.escom.photoresistor;
+package ImageAnalysis;
 
 import java.util.HashMap;
 import java.util.Map;

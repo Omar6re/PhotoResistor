@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import ImageAnalysis.Resistor;
+
 public class ResultsActivity extends AppCompatActivity {
 
     private TextView color1;

@@ -8,46 +8,41 @@ import java.util.Comparator;
 
 public class ColorIdentifier {
 
-    private final int[] BROWN = {165, 42, 42};
-    private final int[] BLUE = {0, 0, 240};
-    private final int[] RED = {240, 0, 0};
-    private final int[] ORANGE = {240, 165, 0};
-    private final int[] YELLOW = {240, 240, 0};
-    private final int[] GREEN = {0, 240, 0};
-    private final int[] VIOLET = {238, 130, 238};
-    private final int[] GRAY = {128, 128, 128};
-    private final int[] WHITE = {240, 240, 240};
-    private final int[] BLACK = {0, 0, 0};
-    private final int[] GOLD = {207, 181, 59};
-    private final int[] SILVER = {192, 192, 192};
-    private final int[][] colors = {
+    static final int[] BROWN = {139, 69, 19};
+    static final int[] BLUE = {20, 20, 125};
+    static final int[] RED = {125, 20, 20};
+    static final int[] ORANGE = {255, 165, 20};
+    static final int[] YELLOW = {255, 255, 20};
+    static final int[] GREEN = {50, 125, 50};
+    static final int[] VIOLET = {128, 20, 128};
+    static final int[] GREY = {128, 128, 128};
+    static final int[] WHITE = {255, 255, 255};
+    static final int[] BLACK = {20, 20, 20};
+    static final int[] GOLD = {212, 175, 55};
+    static final int[] SILVER = {192, 192, 192};
+    static final int[][] colors = {
             BROWN, BLUE, RED, ORANGE, YELLOW,
-            GREEN, VIOLET, GRAY, WHITE, BLACK,
+            GREEN, VIOLET, GREY, WHITE, BLACK,
             GOLD, SILVER
     };
-    private final String[] colorNames = {
+    private static final String[] colorNames = {
             "BROWN", "BLUE", "RED", "ORANGE", "YELLOW",
-            "GREEN", "VIOLET", "GRAY", "WHITE", "BLACK",
+            "GREEN", "VIOLET", "GREY", "WHITE", "BLACK",
             "GOLD", "SILVER"
     };
 
-    public int getColor(int[] rgb) {
+    public static String getColor(int[] rgb) {
 
         ArrayList<Pair<Integer, Integer>> candidates = new ArrayList<>();
 
         for (int i = 0; i < colors.length; i++) {
 
             int difference = 0;
-            int variation = 0;
+//            int variation = 0;
 
             for (int j = 0; j < 3; j++) {
-
-                variation += Math.abs(rgb[j] - colors[i][j]);
+                int variation = Math.abs(rgb[j] - colors[i][j]);
                 difference += variation;
-
-//                if (variation > 20) {
-//                    isEqual = false;
-//                }
             }
 
             Pair<Integer, Integer> p = new Pair<>(i, difference);
@@ -63,10 +58,10 @@ public class ColorIdentifier {
 
         Pair<Integer, Integer> p = candidates.get(0);
 
-        return colorFromRGB(colors[p.first]);
+        return colorNames[p.first];
     }
 
-    private int colorFromRGB(int[] rgb) {
+    public static int colorFromRGB(int[] rgb) {
         return (0xff) << 24 | (rgb[1] & 0x0ff) << 8 | ((rgb[0] & 0x0ff) << 16) | (rgb[2] & 0x0ff);
     }
 }

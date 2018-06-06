@@ -10,6 +10,8 @@ import android.widget.Spinner;
 
 import java.io.Serializable;
 
+import ImageAnalysis.Resistor;
+
 public class ManualInputActivity extends AppCompatActivity {
 
     private Spinner color1;

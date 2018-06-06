@@ -20,17 +20,17 @@ import com.yalantis.ucrop.UCrop;
 import java.io.File;
 import java.io.IOException;
 
+import ImageAnalysis.ResistorImage;
+
 public class TestActivity extends AppCompatActivity {
 
     private final int GALLERY_INTENT = 1000;
     private final int GALLERY_CODE = 11;
     private Bitmap image = null;
     private ImageView imgView;
-    private ImageView imgView2;
     private Uri imgData;
     private File file;
-    private ResistorImage img;
-    private int portion;
+    private ResistorImage ri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,25 +39,23 @@ public class TestActivity extends AppCompatActivity {
 
         Button load = findViewById(R.id.btnLoad);
         Button run = findViewById(R.id.btnRun);
-//        Button red = findViewById(R.id.btnRed);
-//        Button green = findViewById(R.id.btnGreen);
         SeekBar seek = findViewById(R.id.seekBar);
-        imgView2 = findViewById(R.id.imageViewTest2);
+        imgView = findViewById(R.id.imageViewTest2);
 
-        seek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                portion = progress;
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });
+//        seek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+//            @Override
+//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                portion = progress;
+//            }
+//
+//            @Override
+//            public void onStartTrackingTouch(SeekBar seekBar) {
+//            }
+//
+//            @Override
+//            public void onStopTrackingTouch(SeekBar seekBar) {
+//            }
+//        });
 
         load.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,33 +68,14 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    ResistorImage r = new ResistorImage(image);
-                    Bitmap result = r.getImage();
-                    Glide.with(TestActivity.this).load(result).into(imgView2);
+//                    Resistor r = new Resistor(ri);
+//                    Glide.with(TestActivity.this).load(ri.getImage()).into(imgView);
+//                    Toast.makeText(TestActivity.this, "Result: " + r.getValue(), Toast.LENGTH_LONG).show();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-//                Integer i = portion;
-//                String str = i.toString();
-//                Toast.makeText(TestActivity.this, str, Toast.LENGTH_LONG).show();
             }
         });
-//
-//        green.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Glide.with(TestActivity.this).load(img.getImage()).into(imgView2);
-//            }
-//        });
-//
-//        red.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                img.createImageMatrix();
-//                img.filterRed(portion);
-//                Glide.with(TestActivity.this).load(img.getImage()).into(imgView2);
-//            }
-//        });
     }
 
     private void throwIntent(int which) {
@@ -138,16 +117,6 @@ public class TestActivity extends AppCompatActivity {
                 if (resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
                     imgData = data.getData();
                     throwEditor();
-//                    imgData = resultUri;
-//                    try {
-//                        image = MediaStore.Images.Media.getBitmap(this.getContentResolver(), resultUri);
-//                        Glide.with(TestActivity.this).load(resultUri).into(imgView2);
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//
-//                } else {
-//                    Toast.makeText(this, "There was an error picking the picture MAIN", Toast.LENGTH_SHORT).show();
                 }
 
                 break;
@@ -158,8 +127,8 @@ public class TestActivity extends AppCompatActivity {
 
                     try {
                         image = MediaStore.Images.Media.getBitmap(this.getContentResolver(), resultUri);
-                        Glide.with(TestActivity.this).load(resultUri).into(imgView2);
-//                        img = new ResistorImage(image);
+                        ri = new ResistorImage(image);
+                        Glide.with(TestActivity.this).load(resultUri).into(imgView);
                     } catch (IOException e) {
 
                         e.printStackTrace();

@@ -1,6 +1,4 @@
-package com.adoo.escom.photoresistor;
-
-import android.graphics.Bitmap;
+package ImageAnalysis;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -12,22 +10,17 @@ public class Resistor implements Serializable{
     private int tempco;
     private int numStripes;
 
-    Resistor(String[] colors, int numStripes) {
+    public Resistor(String[] colors, int numStripes) {
         super();
         this.colors = colors;
         this.numStripes = numStripes;
         calculateValues();
     }
 
-    Resistor(Bitmap image, int numStripes) throws IOException {
-        super();
-
-        this.numStripes = numStripes;
-//        ResistorImage img = new ResistorImage(image);
-//        int width = img.getWidth();
-//        int height = img.getHeight();
-//
-//        calculateValues();
+    public Resistor(ResistorImage image, int stripes, int[] coords) throws IOException {
+        this.colors = image.getStripesColors(stripes, coords);
+        this.numStripes = stripes;
+        calculateValues();
     }
 
     private void calculateValues() {
